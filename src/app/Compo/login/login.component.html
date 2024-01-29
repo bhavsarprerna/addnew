@@ -1,0 +1,5 @@
+<form (ngSubmit)="login()">
+    Enter Login<input type="text" [(ngModel)]="this._dataservice.loginObj.UserName" name = "UserName"><br>
+    Enter password<input type="password" [(ngModel)]="this._dataservice.loginObj.password" name = "password"><br>
+    <button>Login</button>
+</form>

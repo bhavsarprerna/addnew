@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/",
+    "/home",
+    "/home/branch",
+    "/home/company",
+    "/home/employee",
+    "/login"
+  ]
+}

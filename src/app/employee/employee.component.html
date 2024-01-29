@@ -1,0 +1,55 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Employee Name</th>
+      <th scope="col" *ngIf="edit123">Edit</th>
+      <th scope="col" *ngIf="delete123">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of tableData; let i = index">
+      <td>{{ row.id + 1}}</td>
+      <td *ngIf="row.isEdit">
+        <input  type="text" [(ngModel)]="row.name" class="form-control">
+      </td>
+      <td *ngIf="!row.isEdit"> {{row.name}}</td>
+      <td>
+        <button (click)="saveRow(row)" *ngIf="edit123 && row.isEdit">Save</button>
+        <button (click)="EditRow(row)" *ngIf="edit123  && !row.isEdit">Edit</button>
+      </td>
+      <td><button (click)="deleteRow(i)" *ngIf="delete123">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Employee Name</th>
+      <th scope="col" *ngIf="edit123">Edit</th>
+      <th scope="col" *ngIf="delete123">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let row of tableData; let i = index; trackBy: trackByFn">
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>
+          <ng-container *ngIf="row.isEdit; else viewMode">
+            <input type="text" [(ngModel)]="row.name" class="form-control">
+          </ng-container>
+          <ng-template #viewMode>{{ row.name }}</ng-template>
+        </td>
+        <td>
+          <button *ngIf="shouldShowEditButton(row)" (click)="toggleEdit(row)">
+            {{ row.isEdit ? 'Save' : 'Edit' }}
+          </button>
+        </td>
+        <td>
+          <button *ngIf="delete123" (click)="deleteRow(i)">Delete</button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table> -->

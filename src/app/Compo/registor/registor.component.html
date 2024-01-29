@@ -1,0 +1,16 @@
+<form>
+    Enter Login<input type="text" [(ngModel)]="this._dataservice.signUpObj.UserName" name = "UserName"><br>
+    Enter password<input type="password" [(ngModel)]="this._dataservice.signUpObj.password" name = "password"><br>
+    <label for="cars">Choose a Role</label>
+  
+    <select name="cars" id="cars" [(ngModel)]="this._dataservice.signUpObj.role" name = "role">
+      <option value="SuperAdmin">SuperAdmin</option>
+      <option value="Admin">Admin</option>
+      <option value="User">User</option>
+     
+    </select>
+    <button (click)="signUp()">Signup</button>
+    <a routerLink="/login">Login</a>
+    
+  </form>
+  <router-outlet></router-outlet>
